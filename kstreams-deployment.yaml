@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kstream-lower-to-upper
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kstream-lower-to-upper
+  template:
+    metadata:
+      labels:
+        app: kstream-lower-to-upper
+    spec:
+      containers:
+      - name: kstreams-lower-to-upper
+        image: <to be filled>.azurecr.io/kstreams-lower-to-upper:v1
+        env:
+          - name: KAFKA_BROKER
+            value: [to be filled]
